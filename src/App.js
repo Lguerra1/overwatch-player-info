@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import axios from 'axios';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export default class Odub extends Component {
+  state = {
+    username: '',
+    portrait: ''
+  }
 
-export default App;
+  componentDidMount() {
+    axios.get(`http://overwatchy.com/profile/pc/us/Inphinion-1371`).then(res => {
+      console.log(res)
+      this.setState({
+        username: res.data.username,
+        portrait: res.data.portrait
+      })
+    })
+  }
+  render() {
+
+    return (
+      <div>
+        <img src={this.state.portrait}></img>
+        {this.state.username}
+      </div>
+    )
+  }
+}
