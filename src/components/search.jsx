@@ -42,7 +42,7 @@ const Search = () => {
         // formatBattleTag(battleTag);        
 
         try {
-            const response = await fetch(`https://cors-anywhere.herokuapp.com/https://ow-api.com/v1/stats/pc/us/${battleTag}/complete`, {
+            const response = await fetch(`https://cors-anywhere.herokuapp.com/https://ow-api.com/v1/stats/pc/us/${battleTag}/profile`, {
                 mode: 'cors',
                 headers: {
                     'Access-Control-Allow-Origin': '*'
