@@ -1,9 +1,8 @@
 import React from 'react';
+import SearchContextProvider from './context/searchContext';
 import styled from 'styled-components';
-
-import Header from './components/header';
+import Search from './components/search';
 import PlayerInfo from './components/playerInfo';
-
 import './index.css';
 
 
@@ -16,10 +15,12 @@ flex-direction: column;
 
 const App = () => {
   return (
-    <PageContainer>
-      <Header />
-      <PlayerInfo />
-    </PageContainer>
+    <SearchContextProvider>
+      <PageContainer>
+        <Search />
+        <PlayerInfo />
+      </PageContainer>
+    </SearchContextProvider>
   )
 }
 
