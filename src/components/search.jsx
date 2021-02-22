@@ -35,14 +35,20 @@ const Search = () => {
     // Inphinion-1371
     // BoomyZoomies-1815
 
-    const getUserData = async (e) => {       
+    const getUserData = async (e) => {
 
         e.preventDefault();
         e.stopPropagation();
         // formatBattleTag(battleTag);
+         
 
         try {
-            const response = await fetch(`https://best-overwatch-api.herokuapp.com/player/pc/us/${battleTag}`).then(res => {
+            const response = await fetch(`https://cors-anywhere.herokuapp.com/https://best-overwatch-api.herokuapp.com/player/pc/us/${battleTag}`, {
+                mode: 'cors',
+                headers: {
+                    'Access-Control-Allow-Origin': '*'
+                }
+            }).then(res => {
                 return res.json().then(data => data)
             })
             setSearchResults(response);
