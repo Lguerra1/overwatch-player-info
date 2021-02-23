@@ -5,15 +5,15 @@ import { SearchContext } from '../context/searchContext';
 
 import Nav from './nav';
 
-import BackgroundImg from '../assets/background.jpg';
-
+import BackgroundImg from '../assets/overwatch.jpg';
 
 const TopContainer = styled.div`
 width: 100%;
 height: 100vh;
 padding: 0;
 background-image: url(${BackgroundImg});
-background-repeat: no-repeat center fixed;
+background-position: center center;
+background-repeat: no-repeat;
 background-size: cover;
 position: relative;
 text-align: center;
@@ -26,6 +26,16 @@ background-color: rgba(20, 20, 20, 0.3);
 display: flex;
 flex-direction: column;
 align-items: center;
+`;
+
+const SectionTitle = styled.h1`
+font-size: 34px;
+font-weight: bold;
+color: #9e9e9d;
+
+@media screen and (max-width: 480px){
+    text-align: center;
+}
 `;
 
 const Search = () => {
@@ -75,7 +85,7 @@ const Search = () => {
                 <BackgroundFilter>
                     <Nav />
                     <div>
-                        <h1>Enter your battletag</h1>
+                        <SectionTitle>Enter your battletag</SectionTitle>
                         <form>
                             <input value={battleTag} onChange={e => setBattleTag(e.target.value)} type="text" className="form-control" placeholder="username-1234" />
                             <button onClick={(e) => {
